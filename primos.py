@@ -25,10 +25,13 @@ def primarize(first, last):
     selected_prime = selection(prime, first)
     prime_dif = len(prime) - len(selected_prime)
 
-    print selected_prime
-    print "There are %s prime numbers between %s and %s" % (len(selected_prime), int(first), int(last))
-    if prime_dif != 0:
-        print "There are %s prime numbers from 0 to %s" % (len(prime), int(last))
-        print "%s prime numbers are smaller than %s" % (prime_dif, first)
+    return selected_prime, prime, prime_dif
 
-primarize((raw_input("Compute all prime numbers from ")),(raw_input("To ") ))
+first = raw_input("Compute all prime numbers from ")
+last = raw_input("To ")
+primes, allprimes, prime_dif = primarize(first, last)
+print primes
+print "There are %s prime numbers between %s and %s" % (len(primes), int(first), int(last))
+if prime_dif != 0:
+    print "There are %s prime numbers from 0 to %s" % (len(allprimes), int(last))
+    print "there are %s prime numbers smaller than %s" % (prime_dif, first)
